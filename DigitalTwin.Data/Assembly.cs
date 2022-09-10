@@ -1,5 +1,5 @@
 ﻿namespace DigitalTwin.Data;
-public class Class1
+public class Assembly
 {
 
 }

@@ -1,10 +1,11 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DigitalTwin.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class WeatherForecastController : BaseController
 {
     private static readonly string[] Summaries = new[]
     {
@@ -13,7 +14,7 @@ public class WeatherForecastController : ControllerBase
 
     private readonly ILogger<WeatherForecastController> _logger;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(IMediator mediator, ILogger<WeatherForecastController> logger) : base(mediator)
     {
         _logger = logger;
     }
@@ -26,7 +27,6 @@ public class WeatherForecastController : ControllerBase
             Date = DateTime.Now.AddDays(index),
             TemperatureC = Random.Shared.Next(-20, 55),
             Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        }).ToArray();
     }
 }

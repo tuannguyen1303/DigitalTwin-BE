@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalTwin.Business\DigitalTwin.Business.csproj" />
+    <ProjectReference Include="..\DigitalTwin.Common\DigitalTwin.Common.csproj" />
+    <ProjectReference Include="..\DigitalTwin.Core\DigitalTwin.Core.csproj" />
   </ItemGroup>
 
 </Project>

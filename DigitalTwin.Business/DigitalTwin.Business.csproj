@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalTwin.Common\DigitalTwin.Common.csproj" />
+    <ProjectReference Include="..\DigitalTwin.Data\DigitalTwin.Data.csproj" />
+    <ProjectReference Include="..\DigitalTwin.Models\DigitalTwin.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
