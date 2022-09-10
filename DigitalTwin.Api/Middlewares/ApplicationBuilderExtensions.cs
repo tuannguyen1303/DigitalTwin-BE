@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using System.Linq;
 using System.Text.Json;
 using DigitalTwin.Common.Constants;
 using DigitalTwin.Common.Exceptions;
