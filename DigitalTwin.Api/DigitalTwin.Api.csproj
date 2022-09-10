@@ -16,4 +16,10 @@
     <ProjectReference Include="..\DigitalTwin.Core\DigitalTwin.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="DigitalTwin.Api.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
