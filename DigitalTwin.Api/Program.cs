@@ -11,10 +11,8 @@ builder.Services.AutoRegisterServices(builder.Configuration,
     typeof(DigitalTwin.Models.Assembly).Assembly,
     typeof(DigitalTwin.Data.Assembly).Assembly);
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
