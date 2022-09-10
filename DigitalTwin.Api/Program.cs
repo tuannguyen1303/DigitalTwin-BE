@@ -1,9 +1,9 @@
+using DigitalTwin.Api.Middlewares;
 using DigitalTwin.Common.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AutoRegisterServices(builder.Configuration,
     typeof(Program).Assembly,
     typeof(DigitalTwin.Business.Assembly).Assembly,
@@ -28,7 +28,21 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "PET Digital Twin v1");
     });
+    
+    app.UseDeveloperExceptionPage();
 }
+
+app.UseUrlRewriter(builder.Configuration);
+
+app.UseDefaultFiles();
+
+app.UseStaticFiles();
+
+app.UseMiddleware<HeaderMiddleware>();
+
+app.UseMiddleware<LoggerMiddleware>();
+
+app.UseCustomExceptionHandler(app.Environment);
 
 app.UseHttpsRedirection();
 
