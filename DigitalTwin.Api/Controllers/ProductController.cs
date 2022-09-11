@@ -13,7 +13,15 @@ namespace DigitalTwin.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<Response<List<GetAllProductResponse>>> GetAll([FromBody] GetAllProductRequest request,
+        public async Task<Response<List<ProductResponse>>> GetAll([FromBody] GetAllProductRequest request,
+            CancellationToken token)
+        {
+            var result = await _mediator.Send(request, token);
+            return result;
+        }
+
+        [HttpPost]
+        public async Task<Response<ProductResponse>> CreateNewProduct([FromBody] CreateProductRequest request,
             CancellationToken token)
         {
             var result = await _mediator.Send(request, token);

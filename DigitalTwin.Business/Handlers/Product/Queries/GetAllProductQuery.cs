@@ -6,7 +6,7 @@ using MediatR;
 
 namespace DigitalTwin.Business.Handlers.Product.Queries;
 
-public class GetAllProductQuery : IRequestHandler<GetAllProductRequest, Response<List<GetAllProductResponse>>>
+public class GetAllProductQuery : IRequestHandler<GetAllProductRequest, Response<List<ProductResponse>>>
 {
     private readonly IProductService _productService;
 
@@ -15,7 +15,7 @@ public class GetAllProductQuery : IRequestHandler<GetAllProductRequest, Response
         _productService = productService;
     }
 
-    public async Task<Response<List<GetAllProductResponse>>> Handle(GetAllProductRequest request, CancellationToken cancellationToken)
+    public async Task<Response<List<ProductResponse>>> Handle(GetAllProductRequest request, CancellationToken cancellationToken)
     {
         return await _productService.GetAllProduct(request, cancellationToken);
     }

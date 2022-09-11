@@ -13,13 +13,14 @@ public class ProductService : IProductService
     {
     }
 
-    public Task<Response<List<GetAllProductResponse>>> GetAllProduct(GetAllProductRequest request,
+    public Task<Response<List<ProductResponse>>> GetAllProduct(GetAllProductRequest request,
         CancellationToken token = default)
     {
-        ResponseException.Throw((int)HttpStatusCode.BadRequest, "Exception Text Sample", "Exception Error Message",
-            null);
+        // Throws exception if something's wrong in request
+        // ResponseException.Throw((int)HttpStatusCode.BadRequest, "Exception Text Sample", "Exception Error Message",
+        //     null);
         
-        var result = new List<GetAllProductResponse>
+        var result = new List<ProductResponse>
         {
             new()
             {
@@ -34,5 +35,16 @@ public class ProductService : IProductService
         };
         
         return Task.FromResult(Response.CreateResponse(result));
+    }
+
+    public Task<Response<ProductResponse>> CreateNewProduct(CreateProductRequest request, CancellationToken token = default)
+    {
+        var newProduct = new ProductResponse
+        {
+            Id = Guid.NewGuid(),
+            Name = request.Name
+        };
+        
+        return Task.FromResult(Response.CreateResponse(newProduct));
     }
 }

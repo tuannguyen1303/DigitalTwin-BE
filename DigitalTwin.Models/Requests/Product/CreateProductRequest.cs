@@ -4,7 +4,7 @@ using MediatR;
 
 namespace DigitalTwin.Models.Requests.Product;
 
-public class GetAllProductRequest : BaseRequest, IRequest<Response<List<ProductResponse>>>
+public class CreateProductRequest : BaseRequest, IRequest<Response<ProductResponse>>
 {
-    
+    public string Name { get; set; }
 }
